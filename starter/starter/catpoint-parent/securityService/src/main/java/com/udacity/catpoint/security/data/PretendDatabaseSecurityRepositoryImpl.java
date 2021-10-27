@@ -18,7 +18,8 @@ public class PretendDatabaseSecurityRepositoryImpl implements SecurityRepository
     private Set<Sensor> sensors;
     private AlarmStatus alarmStatus;
     private ArmingStatus armingStatus;
-
+    private Boolean sensorStatus;
+    private Boolean catDisplayed = false;
     //preference keys
     private static final String SENSORS = "SENSORS";
     private static final String ALARM_STATUS = "ALARM_STATUS";
@@ -49,13 +50,31 @@ public class PretendDatabaseSecurityRepositoryImpl implements SecurityRepository
         sensors.add(sensor);
         prefs.put(SENSORS, gson.toJson(sensors));
     }
+    @Override
+    public void setCatDisplayed(Boolean cat) {
+        this.catDisplayed = cat;
+    }
+
+
+    @Override
+    public Boolean getCatDisplayed() {
+        return catDisplayed;
+    }
+
 
     @Override
     public void removeSensor(Sensor sensor) {
         sensors.remove(sensor);
         prefs.put(SENSORS, gson.toJson(sensors));
     }
-
+    @Override
+    public void changeSensorStatus (Boolean status) {
+        sensorStatus = status;
+    }
+    @Override
+    public String add(String input1, String input2) {
+        return input1 + input2;
+    }
     @Override
     public void updateSensor(Sensor sensor) {
         sensors.remove(sensor);

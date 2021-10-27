@@ -2,7 +2,6 @@ package com.udacity.catpoint.security.application;
 
 import com.udacity.catpoint.security.data.AlarmStatus;
 import com.udacity.catpoint.security.service.SecurityService;
-import com.udacity.catpoint.security.service.StyleService;
 
 import net.miginfocom.swing.MigLayout;
 
@@ -45,7 +44,7 @@ public class DisplayPanel extends JPanel implements StatusListener {
 
     @Override
     public void catDetected(boolean catDetected) {
-        // no behavior necessary
+        System.out.println("display panel catDetected()");
     }
 
     @Override
